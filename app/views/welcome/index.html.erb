@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+  <br>
+   <h2>Distance between two Zipcodes</h2>
+   </div class="form-group">
+     <%= form_tag root_path, method: :get do %>
+     <label class="control-label">Zip Code 1:</label>
+      <%= text_field_tag :zipcode1, params[:zipcode1],  type: "number", require: true %>
+     <label class="control-label">Zip Code 2:</label>
+      <%= text_field_tag :zipcode2, params[:zipcode2], type: "number", require: true %>
+     <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
+     <% end %>
+   </div>
+ </div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+</div>
+ <div class="col-md-9">
+  <br>
+   <% if @data %>
+   <h2>Results</h2>
+    <%= @data["distance"] ? "Distance: #{@data["distance"]}" : @data["error_msg"] %>
+   <% end %>
+ </div>
+</div>
